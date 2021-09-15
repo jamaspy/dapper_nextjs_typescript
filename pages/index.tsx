@@ -1,10 +1,15 @@
 import type { NextPage } from "next";
-import { GithubPill, Header, IndexHero, SemiBoldWord } from "../components";
+import {
+  GithubPill,
+  Header,
+  IndexHero,
+  SemiBoldWord,
+} from "@/components/index";
 
 import { QueryClient } from "react-query";
 import { dehydrate } from "react-query/hydration";
 import { fetchPosts, usePosts } from "../hooks";
-import { getSortedPostsData } from "../lib/posts";
+import { getSortedPostsData } from "@/lib/posts";
 import Link from "next/link";
 
 interface IPostProps {

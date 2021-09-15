@@ -2,6 +2,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+  h1 {
+    @apply text-2xl font-bold mb-2;
+  }
+  h2 {
+    @apply text-xl font-semibold mb-2;
+  }
+  p {
+    @apply mb-2;
+  }
+
+  li {
+    @apply list-disc ml-12 my-4;
+  }
+}
 
 html,
 body {

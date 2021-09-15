@@ -1,8 +1,8 @@
 import React from "react";
-import { Date, Header, Navbar } from "../../components";
+import { Date, Header, Navbar } from "@/components/index";
 import type { NextPage } from "next";
 import Link from "next/link";
-import { getSortedPostsData } from "../../lib/posts";
+import { getSortedPostsData } from "@/lib/posts";
 const Blogs: NextPage = ({ allLocalPostsData }: any) => {
   return (
     <>
