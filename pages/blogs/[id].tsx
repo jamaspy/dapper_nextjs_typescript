@@ -1,16 +1,18 @@
 import React from "react";
-import { Date, Header, IndexHero } from "../../components";
-import { getAllPostIds, getPostData } from "../../lib/posts";
+import { Date, Header, HalfHero } from "@/components/index";
+import { getAllPostIds, getPostData } from "@/lib/posts";
+import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 const SinglePost = ({ postData }: any) => {
   return (
     <div>
       <Header title={postData.title} description={postData.title} />
-      <IndexHero title={postData.title} withSubtitle={false} />
+      <HalfHero title={postData.title} withSubtitle={false} />
       <div
         className="container m-auto p-12 text-gray-800"
         dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
       />
+
       <div className="container p-12 text-right">
         <p>
           <span className="font-semibold text-indigo-600">posted:</span>{" "}
