@@ -4,7 +4,6 @@ import { getAllPostIds, getPostData } from "@/lib/posts";
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 const SinglePost = ({ postData }: any) => {
-  console.log(postData.contentHtml);
   return (
     <div>
       <Header title={postData.title} description={postData.title} />
