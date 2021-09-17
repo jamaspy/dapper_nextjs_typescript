@@ -2,6 +2,7 @@
 title: "Starting My First Design System"
 date: "2021-09-12"
 exerpt: "A design system is a set of reusable components that can be used across multiple projects."
+description: "A design system is a set of reusable components that can be used across multiple projects."
 tags:
   - react
   - ab testing
