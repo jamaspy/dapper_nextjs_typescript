@@ -2,6 +2,7 @@
 title: "When to Use Static Generation v.s. Server-side Rendering"
 date: "2020-01-02"
 exerpt: "This is a post about when to use static generation v.s. server-side rendering."
+description: "This is a post about when to use static generation v.s. server-side rendering."
 tags:
   - react
   - ab testing
@@ -15,6 +16,7 @@ You can use Static Generation for many types of pages, including:
 - Blog posts
 - E-commerce product listings
 - Help and documentation
+  `this is code`
 
 You should ask yourself: "Can I pre-render this page **ahead** of a user's request?" If the answer is yes, then you should choose Static Generation.
 

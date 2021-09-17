@@ -18,7 +18,8 @@
       "@/components/*": ["components/*"],
       "@/posts/*": ["posts/*"],
       "@/lib/*": ["lib/*"],
-      "@/constants/*": ["constants/*"]
+      "@/constants/*": ["constants/*"],
+      "@/interfaces/*": ["interfaces/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

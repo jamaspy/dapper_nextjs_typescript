@@ -2,14 +2,27 @@
 title: "Why I learned NextJS"
 date: "2020-01-01"
 exerpt: "I learned NextJS because I wanted to learn a new framework."
+description: "I learned NextJS because I wanted to learn a new framework."
 tags:
   - react
   - ab testing
 ---
 
-# HEading 1
+# Important Things
 
-## heading 2
+## Subtitle of things
+
+```js
+const CodeBlock = ({ language, value }: CodeBlockProps) => {
+  return (
+    <div className="code-block">
+      <SyntaxHighlighter language="javascript" style={vscDarkPlus}>
+        {value}
+      </SyntaxHighlighter>
+    </div>
+  );
+}; // end of CodeBlock
+```
 
 Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.
 
