@@ -24,7 +24,12 @@ const Home = ({ posts, title, description }: BlogProps) => {
 
       <div className="flex flex-col md:flex-row lg:flex-row xl:flex-row h-full w-full py-8">
         <div className="flex flex-col w-full h-full p-4 text-gray-800">
-          <p className="text-xl font-semibold mb-4">Hi, my name is James.</p>
+          <p className="text-xl font-semibold mb-4">
+            Hi, my name is James.{" "}
+            <span role="img" aria-label="waving hand">
+              👋
+            </span>
+          </p>
           <p className="mb-2">
             I am a Frontend Developer based in Sydney working for a AgTech
             company.
@@ -60,7 +65,12 @@ const Home = ({ posts, title, description }: BlogProps) => {
             ranging from a simple static landing page in Gatsby to video
             streaming platforms using Contentful, MUX and VideoJS.{" "}
           </p>
-          <p className="text-xl font-semibold mb-4">Current Side Project</p>
+          <p className="text-xl font-semibold mb-4">
+            Current Side Project{" "}
+            <span role="img" aria-label="waving hand">
+              🚀
+            </span>{" "}
+          </p>
           <hr />
           <p className="mt-4">
             SaaS platform using <SemiBoldWord word="ReactJS" />,{" "}
