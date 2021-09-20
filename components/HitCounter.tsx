@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
+import { BASE_API_URL } from "../constants";
 interface IProps {
   params: { slug: string };
 }
@@ -9,9 +10,8 @@ const HitCounter = ({ params }: IProps) => {
     if (process.env.NODE_ENV !== "production") {
       return;
     }
-    const res = await fetch(
-      `https://nextdapperts.netlify.app/api/register-hit?slug=${params.slug}`
-    );
+    const url = `${BASE_API_URL}/register-hit?slug=${params.slug}`;
+    const res = await fetch(url);
     const data = await res.json();
     return data;
   };
