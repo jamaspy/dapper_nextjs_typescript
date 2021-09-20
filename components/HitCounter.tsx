@@ -16,7 +16,7 @@ const HitCounter = ({ params }: IProps) => {
     return data;
   };
 
-  const { data } = useQuery(["get_hits", `${params.slug}`], registerHit);
+  const { data } = useQuery(["get_hits", `${params?.slug}`], registerHit);
 
   if (typeof data === "undefined") {
     return null;
