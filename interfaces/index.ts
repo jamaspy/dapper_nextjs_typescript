@@ -19,6 +19,7 @@ export type BlogPostProps = {
   markdownBody: any;
   wordCount: number;
   readingTime: string;
+  params: any;
 };
 
 export type BlogPostsProps = {
