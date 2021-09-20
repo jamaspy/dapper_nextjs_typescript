@@ -1,13 +1,19 @@
 import React from "react";
-import { CodeBlock, Date, Header, HalfHero } from "@/components/index";
+import {
+  CodeBlock,
+  HitCounter,
+  Date,
+  Header,
+  HalfHero,
+} from "@/components/index";
 import { getFiles, getPostBySlug } from "@/lib/posts";
 import ReactMarkdown from "react-markdown";
 import { BlogPostProps } from "@/interfaces/index";
 import Link from "next/link";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nord } from "react-syntax-highlighter/dist/cjs/styles/prism";
-
-const SinglePost = ({ frontMatter, markdownBody }: BlogPostProps) => {
+import { useQuery } from "react-query";
+const SinglePost = ({ frontMatter, markdownBody, params }: BlogPostProps) => {
   return (
     <div>
       <Header title={frontMatter.title} description={frontMatter.description} />
@@ -43,6 +49,7 @@ const SinglePost = ({ frontMatter, markdownBody }: BlogPostProps) => {
             <span className="font-semibold text-indigo-600">posted:</span>{" "}
             <Date dateString={frontMatter.date} />
           </p>
+          <HitCounter params={params} />
           <Link href="/blog" passHref>
             <p className="font-semibold hover:text-indigo-600 cursor-pointer transition-all">
               <span className="text-lg font-semibold">&#10510;</span>Back To
@@ -79,6 +86,7 @@ export async function getStaticProps({ params }: any) {
     props: {
       frontMatter,
       markdownBody,
+      params,
     },
   };
 }
