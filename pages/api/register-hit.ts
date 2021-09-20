@@ -1,5 +1,5 @@
 export const faunadb = require("faunadb");
-
+import type { NextApiRequest, NextApiResponse } from "next";
 const q = faunadb.query;
 const client = new faunadb.Client({
   secret: process.env.FAUNA_SECRET_KEY,
@@ -7,7 +7,7 @@ const client = new faunadb.Client({
   scheme: "https",
 });
 
-module.exports = async (req, res) => {
+module.exports = async (req: NextApiRequest, res: NextApiResponse) => {
   const { slug } = req.query;
   if (!slug) {
     return res.status(400).json({
