@@ -5,6 +5,7 @@ import {
   Date,
   Header,
   HalfHero,
+  TagPill,
 } from "@/components/index";
 import { getFiles, getPostBySlug } from "@/lib/posts";
 import ReactMarkdown from "react-markdown";
@@ -45,6 +46,11 @@ const SinglePost = ({ frontMatter, markdownBody, params }: BlogPostProps) => {
           {markdownBody}
         </ReactMarkdown>
         <div className="w-full text-right mt-12">
+          <div className="flex flex-row">
+            {frontMatter.tags.map((tag) => (
+              <TagPill key={tag} tag={tag} />
+            ))}
+          </div>
           <p>
             <span className="font-semibold text-indigo-600">posted:</span>{" "}
             <Date dateString={frontMatter.date} />

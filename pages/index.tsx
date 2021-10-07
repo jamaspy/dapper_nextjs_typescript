@@ -30,7 +30,7 @@ const Home = ({ posts, title, description }: BlogProps) => {
               👋
             </span>
           </p>
-          <p className="mb-2">
+          <p className="mb-2 ">
             I am a Frontend Developer based in Sydney working for a AgTech
             company.
           </p>
@@ -98,7 +98,7 @@ const Home = ({ posts, title, description }: BlogProps) => {
                   <p className="text-base mb-1">{description}</p>
 
                   <Link href={`/blog/${slug}`} passHref>
-                    <p className="cursor-pointer hover:text-indigo-500 hover:font-semibold transition-all">
+                    <p className="hover:animate-wiggle cursor-pointer hover:text-indigo-500 hover:font-semibold transition-all">
                       Read More{" "}
                       <span className="text-indigo-500">&#10140;</span>
                     </p>
