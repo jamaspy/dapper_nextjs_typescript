@@ -1,4 +1,5 @@
 import CodeBlock from "./CodeBlock";
+import ContactForm from "./ContactForm";
 import Date from "./Date";
 import GithubPill from "./GithubPill";
 import HalfHero from "./HalfHero";
@@ -8,8 +9,10 @@ import IndexHero from "./IndexHero";
 import Logo from "./Logo";
 import Navbar from "./Navbar";
 import SemiBoldWord from "./SemiBoldWord";
+import TagPill from "./TagPill";
 export {
   CodeBlock,
+  ContactForm,
   Date,
   GithubPill,
   HalfHero,
@@ -19,4 +22,5 @@ export {
   Logo,
   Navbar,
   SemiBoldWord,
+  TagPill,
 };

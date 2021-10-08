@@ -1,16 +1,18 @@
 import React from "react";
 import { Header, Navbar } from "@/components/index";
 import type { NextPage } from "next";
-const contacts: NextPage = () => {
+import { ContactForm } from "../components";
+const Contacts: NextPage = () => {
   return (
     <>
       <Header title="Contact" description="Get in touch with me" />
       <Navbar />
-      <ul className="prose list-disc">
-        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-      </ul>
+      <div className="w-1/2 m-auto mt-48">
+        <p className="text-xl font-semibold">Send me a message</p>
+        <ContactForm />
+      </div>
     </>
   );
 };
 
-export default contacts;
+export default Contacts;

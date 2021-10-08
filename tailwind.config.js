@@ -9,10 +9,19 @@ module.exports = {
         tangerine: "#feac5e",
         mauve: "#c779d0",
       },
+      keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-0.5deg)" },
+          "50%": { transform: "rotate(0.5deg)" },
+        },
+      },
+      animation: {
+        wiggle: "wiggle 1s ease-in-out infinite",
+      },
     },
   },
   variants: {
-    extend: {},
+    animation: ["responsive", "motion-safe", "motion-reduce", "hover"],
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
 };
