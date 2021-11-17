@@ -13,6 +13,7 @@ const Logo = ({ width, height }: IProps) => {
         alt="reading glasses"
         width={width}
         height={height}
+        priority={true}
       />
     </div>
   );

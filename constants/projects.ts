@@ -4,17 +4,7 @@ export const PROJECTS = [
     name: "Dapper Designer",
     description:
       "This site :) A JAMStack playground to try out new things and experiement. The blogs section uses MDX  & syntax-highlighter. Serverless functions keep a hit count on a FaunaDB & handle the contact form",
-    tech: [
-      "NextJS",
-      "TypeScript",
-      "MDX",
-      "FaunaDB",
-      "Remark",
-      "Greymatter",
-      "react-syntax-highlighter",
-      "TailwindCSS",
-      "Netlify",
-    ],
+    tech: ["NextJS", "TypeScript", "FaunaDB", "TailwindCSS", "Netlify"],
     isPrivate: true,
     link: "/",
   },
