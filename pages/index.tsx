@@ -5,6 +5,11 @@ import {
   IndexHero,
   SemiBoldWord,
 } from "@/components/index";
+import {
+  AiOutlineLinkedin,
+  AiOutlineGithub,
+  AiOutlineMail,
+} from "react-icons/ai";
 import React from "react";
 import { getAllPostsWithFrontMatter } from "@/lib/posts";
 import { BlogProps } from "@/interfaces/index";
@@ -29,7 +34,7 @@ const Home = ({ posts, title, description }: BlogProps) => {
           Alongside my day job I work with boutiques and startups to get their
           message out to their customers, by build progressive web apps, that
           are lightning-fast, secure, responsive, and SEO optimised. Favourite
-          libraries at the are Gatsby, NextJS, and TailwindCSS. FaunaDB,
+          libraries at the moment are Gatsby, NextJS, and TailwindCSS. FaunaDB,
           Contentful and Netlify are also my go-to tools.
         </p>
       </div>
@@ -57,6 +62,14 @@ const Home = ({ posts, title, description }: BlogProps) => {
             })}
           </div>
         </div>
+      </div>
+      <div className="w-full flex flex-col bg-black text-white items-center justify-center p-4">
+        <div className="flex flex-row items-center justify-cente mb-1 text-xl">
+          <AiOutlineLinkedin className="mx-1" />
+          <AiOutlineGithub className="mx-1" />
+          <AiOutlineMail className="mx-1" />
+        </div>
+        <p>Portfolio playground made by James Aspinall 2021</p>
       </div>
     </>
   );
