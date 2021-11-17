@@ -2,6 +2,7 @@ import React from "react";
 
 const ContactForm = () => {
   const [state, setState] = React.useState({});
+  const [sent, setSent] = React.useState(false);
   const handleChange = (event: any) => {
     const { name, value } = event.target;
     setState((prevState) => {
@@ -12,12 +13,26 @@ const ContactForm = () => {
     });
   };
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    return fetch("/api/contact", {
+  const sendMessage = async () => {
+    const response = await fetch("/api/contact", {
       method: "post",
       body: JSON.stringify(state),
     });
+    const data = await response.json();
+    setState({});
+    return data;
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    sendMessage()
+      .then(() => {
+        setSent(true);
+        setState({});
+      })
+      .catch((e) => {
+        console.error(e);
+      });
   };
   return (
     <form
@@ -38,6 +53,7 @@ const ContactForm = () => {
             type="text"
             autoComplete="name"
             required
+            value={state?.name}
             className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
             placeholder="Your name"
             onChange={(e) => handleChange(e)}
@@ -51,6 +67,7 @@ const ContactForm = () => {
             id="email"
             name="email"
             type="email"
+            value={state?.email}
             autoComplete="email"
             required
             className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -68,6 +85,7 @@ const ContactForm = () => {
             rows={5}
             autoComplete="message"
             required
+            value={state?.message}
             className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
             placeholder="Your message"
             onChange={(e) => handleChange(e)}
@@ -78,9 +96,12 @@ const ContactForm = () => {
       <div>
         <button
           type="submit"
-          className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          disabled={!state?.name || !state?.email || !state?.message}
+          className={`transition-all group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
+            sent ? "bg-green-600" : "bg-indigo-600"
+          } `}
         >
-          Hit me up!
+          {sent ? "Message Sent, Thanks" : "Hit me up!"}
         </button>
       </div>
     </form>
