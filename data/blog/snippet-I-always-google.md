@@ -113,7 +113,7 @@ export const formatCurrency = (
 <p>{formatCurrency(2, 2).format(item?.value)}</p>;
 ```
 
-### 7. Handy date formatter
+## 7. Handy date formatter
 
 ```javascript
 export const formatDate = (dateString) => {
