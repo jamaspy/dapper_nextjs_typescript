@@ -1,7 +1,11 @@
 import React from "react";
 
 const ContactForm = () => {
-  const [state, setState] = React.useState({});
+  const [state, setState] = React.useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [sent, setSent] = React.useState(false);
   const handleChange = (event: any) => {
     const { name, value } = event.target;
@@ -19,7 +23,7 @@ const ContactForm = () => {
       body: JSON.stringify(state),
     });
     const data = await response.json();
-    setState({});
+
     return data;
   };
 
@@ -28,7 +32,11 @@ const ContactForm = () => {
     sendMessage()
       .then(() => {
         setSent(true);
-        setState({});
+        setState({
+          name: "",
+          email: "",
+          message: "",
+        });
       })
       .catch((e) => {
         console.error(e);
