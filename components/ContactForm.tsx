@@ -6,7 +6,7 @@ const ContactForm = () => {
     email: "",
     message: "",
   });
-  console.log("🚀  TESTY:  : ContactForm : state", state);
+
   const [sent, setSent] = React.useState(false);
   const handleChange = (event: any) => {
     const { name, value } = event.target;
