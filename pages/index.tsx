@@ -22,55 +22,57 @@ const Home = ({ posts, title, description }: BlogProps) => {
     <>
       <Header title={title} description={description} />
       <IndexHero title="dapper designer" withSubtitle={true} />
-      <div className="container p-4">
-        <p className="text-xl font-semibold mb-4">
-          Hi, my name is James.{" "}
-          <span role="img" aria-label="waving hand">
-            👋
-          </span>
-        </p>
+      <main>
+        <div className="container p-4">
+          <p className="text-xl font-semibold mb-4">
+            Hi, my name is James.{" "}
+            <span role="img" aria-label="waving hand">
+              👋
+            </span>
+          </p>
 
-        <p>
-          Alongside my day job I work with boutiques and startups to get their
-          message out to their customers, by build progressive web apps, that
-          are lightning-fast, secure, responsive, and SEO optimised. Favourite
-          libraries at the moment are Gatsby, NextJS, and TailwindCSS. FaunaDB,
-          Contentful and Netlify are also my go-to tools.
-        </p>
-      </div>
-      <div className="flex flex-col md:flex-row lg:flex-row xl:flex-row h-full w-full py-8">
-        <div className="flex w-full h-full p-4 text-gray-800">
-          <div className="w-full">
-            <p className="text-xl font-semibold mb-4 ">Recent Posts</p>
-            <hr />
-            {recentPosts?.map(({ slug, frontMatter }: any) => {
-              const { title, description } = frontMatter;
+          <p>
+            Alongside my day job I work with boutiques and startups to get their
+            message out to their customers, by build progressive web apps, that
+            are lightning-fast, secure, responsive, and SEO optimised. Favourite
+            libraries at the moment are Gatsby, NextJS, and TailwindCSS.
+            FaunaDB, Contentful and Netlify are also my go-to tools.
+          </p>
+        </div>
+        <div className="flex flex-col md:flex-row lg:flex-row xl:flex-row h-full w-full py-8">
+          <div className="flex w-full h-full p-4 text-gray-800">
+            <div className="w-full">
+              <p className="text-xl font-semibold mb-4 ">Recent Posts</p>
+              <hr />
+              {recentPosts?.map(({ slug, frontMatter }: any) => {
+                const { title, description } = frontMatter;
 
-              return (
-                <div className="border-b mb-4 pb-2 mt-4" key={slug}>
-                  <p className="text-lg mb-1">{title}</p>
-                  <p className="text-base mb-1">{description}</p>
+                return (
+                  <div className="border-b mb-4 pb-2 mt-4" key={slug}>
+                    <p className="text-lg mb-1">{title}</p>
+                    <p className="text-base mb-1">{description}</p>
 
-                  <Link href={`/blog/${slug}`} passHref>
-                    <p className="hover:animate-wiggle cursor-pointer hover:text-indigo-500 hover:font-semibold transition-all">
-                      Read More{" "}
-                      <span className="text-indigo-500">&#10140;</span>
-                    </p>
-                  </Link>
-                </div>
-              );
-            })}
+                    <Link href={`/blog/${slug}`} passHref>
+                      <p className="hover:animate-wiggle cursor-pointer hover:text-indigo-500 hover:font-semibold transition-all">
+                        Read More{" "}
+                        <span className="text-indigo-500">&#10140;</span>
+                      </p>
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
-      </div>
-      <div className="w-full flex flex-col bg-black text-white items-center justify-center p-4">
-        <div className="flex flex-row items-center justify-cente mb-1 text-xl">
-          <AiOutlineLinkedin className="mx-1" />
-          <AiOutlineGithub className="mx-1" />
-          <AiOutlineMail className="mx-1" />
+        <div className="w-full flex flex-col bg-black text-white items-center justify-center p-4">
+          <div className="flex flex-row items-center justify-cente mb-1 text-xl">
+            <AiOutlineLinkedin className="mx-1" />
+            <AiOutlineGithub className="mx-1" />
+            <AiOutlineMail className="mx-1" />
+          </div>
+          <p>Portfolio playground made by James Aspinall 2021</p>
         </div>
-        <p>Portfolio playground made by James Aspinall 2021</p>
-      </div>
+      </main>
     </>
   );
 };

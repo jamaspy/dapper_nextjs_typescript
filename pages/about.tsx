@@ -9,7 +9,7 @@ const about: NextPage = () => {
         description="A little bit of background on James Aspinall"
       />
       <Navbar />
-      <div className="flex flex-col w-full h-full p-4 text-gray-800">
+      <main className="flex flex-col w-full h-full p-4 text-gray-800">
         <p className="text-xl font-semibold mb-4">
           Hi, my name is James.{" "}
           <span role="img" aria-label="waving hand">
@@ -69,7 +69,7 @@ const about: NextPage = () => {
           <SemiBoldWord word="Github Actions" />
         </p>
         <GithubPill />
-      </div>
+      </main>
     </div>
   );
 };

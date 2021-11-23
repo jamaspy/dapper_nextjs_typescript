@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import Link from "next/link";
 import Logo from "../components/Logo";
 import styles from "../styles/Navbar.module.css";
 import { navItems } from "../constants";
-const Navbar = () => {
+const Navbar: FC = () => {
   return (
     <div className={styles.container}>
       <Link href="/" passHref>

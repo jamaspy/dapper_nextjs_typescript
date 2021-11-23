@@ -1,11 +1,12 @@
 import React from "react";
-
+import { some } from "lodash";
 const ContactForm = () => {
   const [state, setState] = React.useState({
     name: "",
     email: "",
     message: "",
   });
+  console.log("🚀  TESTY:  : ContactForm : state", state);
   const [sent, setSent] = React.useState(false);
   const handleChange = (event: any) => {
     const { name, value } = event.target;
@@ -42,6 +43,7 @@ const ContactForm = () => {
         console.error(e);
       });
   };
+
   return (
     <form
       className="mt-4 space-y-6"

@@ -7,10 +7,10 @@ const Contacts: NextPage = () => {
     <>
       <Header title="Contact" description="Get in touch with me" />
       <Navbar />
-      <div className="w-1/2 m-auto mt-48">
+      <main className="w-1/2 m-auto mt-48">
         <p className="text-xl font-semibold">Send me a message</p>
         <ContactForm />
-      </div>
+      </main>
     </>
   );
 };

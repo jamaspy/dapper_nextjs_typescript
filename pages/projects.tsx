@@ -12,7 +12,7 @@ const skills: NextPage = () => {
       />
       <Navbar />
 
-      <div className="grid grid-col-1 md:grid-col-2 lg:grid-cols-3 gap-4 p-4">
+      <main className="grid grid-col-1 md:grid-col-2 lg:grid-cols-3 gap-4 p-4">
         {PROJECTS.map((project) => (
           <div
             key={project.id}
@@ -48,7 +48,7 @@ const skills: NextPage = () => {
             </div>
           </div>
         ))}
-      </div>
+      </main>
     </>
   );
 };
