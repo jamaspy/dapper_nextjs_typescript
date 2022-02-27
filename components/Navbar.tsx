@@ -4,37 +4,88 @@ import Logo from "../components/Logo";
 import styles from "../styles/Navbar.module.css";
 import { navItems } from "../constants";
 const Navbar: FC = () => {
+  const [show, setShow] = React.useState(false);
   return (
-    <div className={styles.container}>
-      <Link href="/" passHref>
-        <div className="absolute top-0 left-0 p-2">
-          <Logo width={30} height={30} />
+    <>
+      <nav className="flex justify-between mx-auto px-4 bg-blacked text-white">
+        <Link href="/" passHref>
+          <div className="cursor-pointer">
+            <Logo width={30} height={30} />
+          </div>
+        </Link>
+        <div className="hidden space-x-8 lg:flex items-center justify-center">
+          {navItems.map((item, index) => (
+            <Link key={index} href={item.route} passHref>
+              <p className="mx-2 md:mx-4 lg:mx-4 xl:mx-4 text-xl cursor-pointer hover:text-dark_pink transition-all">
+                {item.label}
+              </p>
+            </Link>
+          ))}
         </div>
-      </Link>
+        <div
+          className={`${
+            !show ? "flex" : "hidden"
+          } items-center justify-center lg:hidden px-4`}
+          onClick={() => {
+            setShow(!show);
+            console.log(show);
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </div>
+        <div
+          className={`${
+            show ? "flex" : "hidden"
+          }  items-center justify-center lg:hidden px-4`}
+          onClick={() => {
+            setShow(!show);
+            console.log(show);
+          }}
+        >
+          <svg
+            viewBox="0 0 40 40"
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="3"
+              className="close-x"
+              d="M 10,10 L 30,30 M 30,10 L 10,30"
+            />
+          </svg>
+        </div>
+      </nav>
 
-      <div className="absolute top-0 right-0 flex flex-row mr-3 mt-6">
+      <div
+        className={`${
+          show ? "flex" : "hidden"
+        } absolute top-20 space-y-4 flex-col w-full items-center justify-center text-white z-50 bg-blacked`}
+      >
         {navItems.map((item, index) => (
           <Link key={index} href={item.route} passHref>
-            <p className="mx-2 md:mx-4 lg:mx-4 xl:mx-4 text-md md:text-xl lg:text-xl xl:text-2xl cursor-pointer hover:text-indigo-500">
+            <p className="mx-2 md:mx-4 lg:mx-4 xl:mx-4 text-xl cursor-pointer hover:text-dark_pink transition-all">
               {item.label}
             </p>
           </Link>
         ))}
       </div>
-      <div className={styles.bottom}>
-        <svg
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-            className={styles.bottom_fill}
-          ></path>
-        </svg>
-      </div>
-    </div>
+    </>
   );
 };
 

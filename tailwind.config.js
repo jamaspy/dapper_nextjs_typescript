@@ -8,6 +8,8 @@ module.exports = {
         seagreen: "#4bc0c8",
         tangerine: "#feac5e",
         mauve: "#c779d0",
+        dark_pink: "#C62467",
+        blacked: "#001220",
       },
       keyframes: {
         wiggle: {

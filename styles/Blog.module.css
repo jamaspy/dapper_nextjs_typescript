@@ -1,0 +1,10 @@
+.container {
+  position: relative;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("/blog.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}

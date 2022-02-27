@@ -107,8 +107,8 @@ const ContactForm = () => {
         <button
           type="submit"
           disabled={!state?.name || !state?.email || !state?.message}
-          className={`transition-all group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
-            sent ? "bg-green-600" : "bg-indigo-600"
+          className={`transition-all group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white hover:bg-seagreen focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
+            sent ? "bg-green-600" : "bg-dark_pink"
           } `}
         >
           {sent ? "Message Sent, Thanks" : "Hit me up!"}

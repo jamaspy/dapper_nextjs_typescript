@@ -19,7 +19,7 @@ const SinglePost = ({ frontMatter, markdownBody, params }: BlogPostProps) => {
     <div>
       <Header title={frontMatter.title} description={frontMatter.description} />
       <HalfHero title={frontMatter.title} withSubtitle={false} />
-      <div className="container m-auto">
+      <div className="container m-auto px-4">
         <ReactMarkdown
           components={{
             code({ node, inline, className, children, ...props }) {
