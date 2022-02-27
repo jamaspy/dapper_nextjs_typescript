@@ -1,11 +1,12 @@
 import React from "react";
-import { Header, Navbar } from "../components";
+import { Header, Navbar } from "@/components/index";
 import type { NextPage } from "next";
 import { PROJECTS } from "../constants";
 import { HiOutlineGlobe } from "react-icons/hi";
+import styles from "../styles/Projects.module.css";
 const skills: NextPage = () => {
   return (
-    <>
+    <div className={styles.container}>
       <Header
         title="Projects"
         description="Things I have worked on and the skills that I have"
@@ -16,7 +17,7 @@ const skills: NextPage = () => {
         {PROJECTS.map((project) => (
           <div
             key={project.id}
-            className="hover:bg-gray-50 transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-105 rounded-md shadow-md border-2 border-seagreen flex flex-col justify-between p-2"
+            className="hover:bg-gray-50 hover:bg-opacity-50 transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-105 rounded-md shadow-md border-2 border-dark_pink flex flex-col justify-between p-2"
           >
             <div className="flex flex-row">
               <div className="flex flex-row w-full justify-between h-full ">
@@ -30,13 +31,13 @@ const skills: NextPage = () => {
                   {project.link && !project.isPrivate && (
                     <>
                       <a
-                        className="flex flex-row items-center justify-center font-semibold text-xl "
+                        className=" hover:text-dark_pink flex flex-row items-center justify-center font-semibold text-xl "
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <HiOutlineGlobe className="text-tangerine text-3xl mr-2" />{" "}
-                        <span className="hover:text-tangerine">Live</span>
+                        <HiOutlineGlobe className="text-3xl mr-2" />{" "}
+                        <span className="">Live</span>
                       </a>
                     </>
                   )}
@@ -49,7 +50,7 @@ const skills: NextPage = () => {
           </div>
         ))}
       </main>
-    </>
+    </div>
   );
 };
 

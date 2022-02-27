@@ -19,7 +19,7 @@ const Home = ({ posts, title, description }: BlogProps) => {
   const recentPosts = posts?.slice(0, 3);
 
   return (
-    <>
+    <div className="bg-blacked text-white">
       <Header title={title} description={description} />
       <IndexHero title="dapper designer" withSubtitle={true} />
       <main>
@@ -40,7 +40,7 @@ const Home = ({ posts, title, description }: BlogProps) => {
           </p>
         </div>
         <div className="flex flex-col md:flex-row lg:flex-row xl:flex-row h-full w-full py-8">
-          <div className="flex w-full h-full p-4 text-gray-800">
+          <div className="flex w-full h-full p-4 text-white">
             <div className="w-full">
               <p className="text-xl font-semibold mb-4 ">Recent Posts</p>
               <hr />
@@ -53,9 +53,9 @@ const Home = ({ posts, title, description }: BlogProps) => {
                     <p className="text-base mb-1">{description}</p>
 
                     <Link href={`/blog/${slug}`} passHref>
-                      <p className="hover:animate-wiggle cursor-pointer hover:text-indigo-500 hover:font-semibold transition-all">
+                      <p className="hover:animate-wiggle cursor-pointer hover:text-dark_pink hover:font-semibold transition-all">
                         Read More{" "}
-                        <span className="text-indigo-500">&#10140;</span>
+                        <span className="text-dark_pink">&#10140;</span>
                       </p>
                     </Link>
                   </div>
@@ -73,7 +73,7 @@ const Home = ({ posts, title, description }: BlogProps) => {
           <p>Portfolio playground made by James Aspinall 2021</p>
         </div>
       </main>
-    </>
+    </div>
   );
 };
 
