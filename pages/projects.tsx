@@ -1,5 +1,5 @@
 import React from "react";
-import { GithubPill, Header, Navbar, SemiBoldWord } from "@/components/index";
+import { Header, Navbar } from "@/components/index";
 import type { NextPage } from "next";
 import { PROJECTS } from "../constants";
 import { HiOutlineGlobe } from "react-icons/hi";

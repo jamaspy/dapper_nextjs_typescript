@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  CodeBlock,
   HitCounter,
   Date,
   Header,
@@ -13,7 +12,7 @@ import { BlogPostProps } from "@/interfaces/index";
 import Link from "next/link";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nord } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import { useQuery } from "react-query";
+
 const SinglePost = ({ frontMatter, markdownBody, params }: BlogPostProps) => {
   return (
     <div>

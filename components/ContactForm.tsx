@@ -1,5 +1,5 @@
 import React from "react";
-import { some } from "lodash";
+
 const ContactForm = () => {
   const [state, setState] = React.useState({
     name: "",
