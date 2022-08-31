@@ -6,7 +6,7 @@ import { getAllPostsWithFrontMatter } from "@/lib/posts";
 import styles from "../../styles/Blog.module.css";
 const Blogs: NextPage = ({ posts }: any) => {
   return (
-    <div className={styles.container}>
+    <div>
       <Header title="Blogs" description="Ideal Rambles About Code" />
       <Navbar />
 

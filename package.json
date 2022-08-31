@@ -11,6 +11,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bigheads/core": "^0.3.3",
+    "@headlessui/react": "^1.6.4",
+    "@heroicons/react": "^1.0.6",
     "@sendgrid/mail": "^7.4.7",
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/typography": "^0.4.1",

@@ -10,6 +10,9 @@ module.exports = {
         mauve: "#c779d0",
         dark_pink: "#C62467",
         blacked: "#001220",
+        nice_black: "#171125",
+        salmon: "#D66F70",
+        react: "#61DAFB",
       },
       keyframes: {
         wiggle: {
