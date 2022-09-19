@@ -11,8 +11,11 @@ module.exports = {
         dark_pink: "#C62467",
         blacked: "#001220",
         nice_black: "#171125",
-        salmon: "#D66F70",
-        react: "#61DAFB",
+        salmon: "#8095F2",
+        gatsby: "#F28195",
+        gatsby_hover: "#D66F70",
+        gatsby_light: "#8095F2",
+        gatsby_light_hover: "#6070B6",
       },
       keyframes: {
         wiggle: {

@@ -18,6 +18,7 @@ module.exports = async (req: NextApiRequest, res: NextApiResponse) => {
   const doesDocExist = await client.query(
     q.Exists(q.Match(q.Index("hits_by_slug"), slug))
   );
+  console.log("🚀  TESTY:  : module.exports= : doesDocExist", doesDocExist);
   if (!doesDocExist) {
     await client.query(
       q.Create(q.Collection("hits"), {
@@ -29,6 +30,7 @@ module.exports = async (req: NextApiRequest, res: NextApiResponse) => {
   const document = await client.query(
     q.Get(q.Match(q.Index("hits_by_slug"), slug))
   );
+  console.log("🚀  TESTY:  : module.exports= : document", document);
   await client.query(
     q.Update(document.ref, {
       data: {

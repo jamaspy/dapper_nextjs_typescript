@@ -7,11 +7,13 @@ interface IProps {
 
 const HitCounter = ({ params }: IProps) => {
   const registerHit = async () => {
-    if (process.env.NODE_ENV !== "production") {
-      return;
-    }
+    // if (process.env.NODE_ENV !== "production") {
+    //   return;
+    // }
     const url = `${BASE_API_URL}/register-hit?slug=${params.slug}`;
+    console.log("🚀  TESTY:  : registerHit :  url", url);
     const res = await fetch(url);
+    console.log("🚀  TESTY:  : registerHit : res", res);
     const data = await res.json();
     return data;
   };

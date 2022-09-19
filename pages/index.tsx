@@ -1,192 +1,97 @@
 import type { NextPage } from "next";
-import {
-  GithubPill,
-  Header,
-  IndexHero,
-  SemiBoldWord,
-} from "@/components/index";
-import {
-  AiOutlineLinkedin,
-  AiOutlineGithub,
-  AiOutlineMail,
-} from "react-icons/ai";
-import React, { Fragment } from "react";
+import { Layout, Navbar } from "@/components/index";
+import { FaChevronCircleRight } from "react-icons/fa";
+import React from "react";
 import { getAllPostsWithFrontMatter } from "@/lib/posts";
 import { BlogProps } from "@/interfaces/index";
 import Link from "next/link";
-import { Popover, Transition } from "@headlessui/react";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
+
 import Avatar from "../components/Avatar";
-import { urlObjectKeys } from "next/dist/shared/lib/utils";
+
 const Home = ({ posts, title, description }: BlogProps) => {
   const recentPosts = posts?.slice(0, 3);
-  const navigation = [
-    { name: "Articles", href: "/blog" },
-    { name: "Projects", href: "/projects" },
-    { name: "Marketplace", href: "#" },
-    { name: "Contact", href: "/contact" },
-  ];
+  console.log("🚀  TESTY:  : Home : recentPosts", recentPosts);
+
   return (
-    <>
-      <Header title={title} description={description} />
-      <div className="relative bg-nice_black overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="relative z-10 pb-8 bg-nice_black sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-            <svg
-              className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
-              fill="#171125"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <polygon points="50,0 100,0 50,100 0,100" />
-            </svg>
-
-            <Popover>
-              <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
-                <nav
-                  className="relative flex items-center justify-between sm:h-10 lg:justify-start"
-                  aria-label="Global"
-                >
-                  <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
-                    <div className="flex items-center justify-between w-full md:w-auto">
-                      <a href="#">
-                        <span className="sr-only">Workflow</span>
-                        <img
-                          alt="Workflow"
-                          className="h-8 w-auto sm:h-10"
-                          src="./Speda.svg"
-                        />
-                      </a>
-                      <div className="-mr-2 flex items-center md:hidden">
-                        <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                          <span className="sr-only">Open main menu</span>
-                          <MenuIcon className="h-6 w-6" aria-hidden="true" />
-                        </Popover.Button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="font-medium text-gray-500 hover:text-salmon"
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                    <a
-                      href="#"
-                      className="font-medium text-react hover:text-indigo-500"
-                    >
-                      Log in
-                    </a>
-                  </div>
-                </nav>
-              </div>
-
-              <Transition
-                as={Fragment}
-                enter="duration-150 ease-out"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="duration-100 ease-in"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
-              >
-                <Popover.Panel
-                  focus
-                  className="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
-                >
-                  <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-                    <div className="px-5 pt-4 flex items-center justify-between">
-                      <div>
-                        <img className="h-8 w-auto" src="./Speda.svg" alt="" />
-                      </div>
-                      <div className="-mr-2">
-                        <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                          <span className="sr-only">Close main menu</span>
-                          <XIcon className="h-6 w-6" aria-hidden="true" />
-                        </Popover.Button>
-                      </div>
-                    </div>
-                    <div className="px-2 pt-2 pb-3 space-y-1">
-                      {navigation.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-salmon hover:bg-gray-50"
-                        >
-                          {item.name}
-                        </a>
-                      ))}
-                    </div>
-                    <a
-                      href="#"
-                      className="block w-full px-5 py-3 text-center font-medium text-salmon bg-gray-50 hover:bg-gray-100"
-                    >
-                      Log in
-                    </a>
-                  </div>
-                </Popover.Panel>
-              </Transition>
-            </Popover>
-
-            <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-              <div className="sm:text-center lg:text-left">
-                <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                  <span className="block xl:inline text-white">dapper</span>{" "}
-                  <span className="block text-salmon xl:inline">designer</span>
-                </h1>
-                <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                  Frontend developer who loves to create beautiful and
-                  functional interfaces.
-                </p>
-                <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                  <div className="rounded-md shadow">
-                    <Link href="/contact" passHref>
-                      <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-salmon hover:bg-react md:py-4 md:text-lg md:px-10">
-                        Work with me
-                      </button>
-                    </Link>
-                  </div>
-                  <div className="mt-3 sm:mt-0 sm:ml-3">
-                    <a
-                      href="#"
-                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
-                    >
-                      Resumè
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </main>
+    <Layout title={title} description={description}>
+      <div className="flex flex-col lg:flex-row overflow-hidden">
+        <div className="flex-1 ">
+          {/* TEXT */}
+          <div className="flex flex-col h-full justify-center px-4 lg:pl-12 mt-12 lg:mt-0">
+            <h1 className=" tracking-tight font-extrabold text-gray-900 text-6xl md:text-8xl">
+              <span className="block xl:inline text-white">dapper</span>{" "}
+              <span className="block text-salmon xl:inline ml-6 md:ml-12">
+                designer
+              </span>
+            </h1>
+            <p className="mt-3 text-base text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl lg:mx-0">
+              Frontend developer who loves to create beautiful and functional
+              interfaces.
+            </p>
+            <div className="flex flex-col md:flex-row md:mt-8">
+              <Link href="/contact" passHref>
+                <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-gatsby hover:bg-gatsby_hover md:py-4 md:text-lg md:px-10 md:mr-2 mb-2 md:mb-0">
+                  Work with me
+                </button>
+              </Link>
+              <Link href="/contact" passHref>
+                <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-gatsby_light hover:bg-gatsby_light_hover md:py-4 md:text-lg md:px-10">
+                  Resumè
+                </button>
+              </Link>
+            </div>
           </div>
+          {/* END TEXT */}
         </div>
-        <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-          <div className="flex w-full h-full items-center justify-center">
-            <Avatar />
-          </div>
-        </div>
-      </div>
-      <div className="flex lg:flex-row justify-between">
         <div className="flex-1">
-          Est quis sint veniam non consequat id. Minim amet officia proident
-          nostrud non. Eiusmod quis ad voluptate adipisicing. Enim consectetur
-          ea laborum magna officia amet incididunt mollit reprehenderit.
-          <br />
-          <br />
+          <Avatar />
         </div>
-        <div
-          className="h-36 w-36 rounded-full mr-12 mt-12"
-          style={{
-            backgroundImage: 'url("./dot.svg")',
-            backgroundRepeat: "repeat",
-          }}
-        ></div>
       </div>
-    </>
+      <div className="flex flex-col lg:flex-row justify-between bg-gray-50 p-4">
+        <div className="lg:w-3/4 mr-4">
+          <h1>Hi, my name is James 👋</h1>
+          <p className="lg:text-xl leading-relaxed">
+            Alongside my day job I work with boutiques and startups to get their
+            message out to their customers, by build progressive web apps, that
+            are lightning-fast, secure, responsive, and SEO optimised.
+          </p>
+          <p className="lg:text-xl leading-relaxed">
+            Favourite libraries at the moment are Gatsby, NextJS, and
+            TailwindCSS. PlanetScale, Prisma, Contentful and Netlify are also my
+            go-to tools for more full stack applications.
+          </p>
+        </div>
+        <div className="flex-1">
+          <div className="mt-4 lg:mt-0 pb-4 lg:pb-2">
+            <h2 className="text-gatsby">Recent Posts</h2>
+            <hr className="mb-2" />
+            {recentPosts?.map((post, index) => {
+              const { frontMatter } = post;
+              const { slug } = post;
+
+              return (
+                <div key={`post-${index}`}>
+                  <Link href={`blog/${slug}`} passHref>
+                    <p className="hover:text-gatsby_light hover:font-bold cursor-pointer flex flex-row items-center ">
+                      {frontMatter?.title}
+                    </p>
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+          <iframe
+            style={{ borderRadius: "12px", marginBottom: "24px" }}
+            src="https://open.spotify.com/embed/playlist/6sKewr2VmHtPhWtsLbeKpW?utm_source=generator"
+            width="100%"
+            height="80"
+            frameBorder="0"
+            allowFullScreen={true}
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          ></iframe>
+        </div>
+      </div>
+    </Layout>
   );
 };
 

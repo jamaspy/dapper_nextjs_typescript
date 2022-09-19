@@ -2,6 +2,7 @@ export type BlogFrontMatter = {
   title: string;
   description: string;
   date: string;
+  exerpt: string;
   tags: string[];
 };
 

@@ -1,19 +1,116 @@
 import React from "react";
-import { Header, Navbar } from "@/components/index";
+import { Layout } from "@/components/index";
 import type { NextPage } from "next";
 import { PROJECTS } from "../constants";
 import { HiOutlineGlobe } from "react-icons/hi";
-import styles from "../styles/Projects.module.css";
+import Image from "next/image";
 const skills: NextPage = () => {
   return (
-    <div className={styles.container}>
-      <Header
-        title="Projects"
-        description="Things I have worked on and the skills that I have"
-      />
-      <Navbar />
+    <Layout title="Projects" description="Things I have worked on">
+      <div className="w-full md:w-3/4 lg:w-1/2 pl-2 md:pl-4 lg:pl-12 lg:my-24">
+        <h1 className=" tracking-tight font-extrabold text-gray-900 text-6xl md:text-8xl">
+          <span className="block xl:inline text-white">internet</span>{" "}
+          <span className="block text-salmon xl:inline ml-6 md:ml-12">
+            things
+          </span>
+        </h1>
+        <p className="mt-3 text-base text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl lg:mx-0">
+          A few of the latest internet things that I have worked on in my spare
+          time.
+        </p>
+      </div>
+      <div className="p-4 text-white grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="group relative rounded-lg overflow-hidden">
+          <Image
+            src="/leos.png"
+            layout="responsive"
+            width={200}
+            height={200}
+            objectFit="cover"
+            alt="leos"
+          />
+          <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-gatsby opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
+            <h1 className="text-2xl text-white">Leonardos Deli</h1>
+            <p className="text-sm text-center lg:text-left">
+              Gatsby, Tailwind, Contentful, Netlify
+            </p>
+            <a
+              className="mt-5 px-8 py-3 rounded-full bg-amber-400 hover:bg-amber-600 duration-300"
+              href="#"
+            >
+              Visit Project
+            </a>
+          </div>
+        </div>
+        <div className="group relative rounded-lg overflow-hidden">
+          <Image
+            src="/pre.png"
+            layout="responsive"
+            width={200}
+            height={200}
+            objectFit="cover"
+            alt="leos"
+          />
+          <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-gatsby opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
+            <h1 className="text-2xl text-white">Preacta</h1>
+            <p className="text-sm text-center lg:text-left">
+              Gatsby, SaSS, Contentful, Netlify
+            </p>
+            <a
+              className="mt-5 px-8 py-3 rounded-full bg-amber-400 hover:bg-amber-600 duration-300"
+              href="#"
+            >
+              Visit Project
+            </a>
+          </div>
+        </div>
+        <div className="group relative rounded-lg overflow-hidden">
+          <Image
+            src="/kloud.png"
+            layout="responsive"
+            width={200}
+            height={200}
+            objectFit="cover"
+            alt="leos"
+          />
+          <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-gatsby opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
+            <h1 className="text-2xl text-white">Kloud Partners</h1>
+            <p className="text-sm text-center lg:text-left">
+              Gatsby, Tailwind, GreenSock, Netlify
+            </p>
+            <a
+              className="mt-5 px-8 py-3 rounded-full bg-amber-400 hover:bg-amber-600 duration-300"
+              href="#"
+            >
+              Visit Project
+            </a>
+          </div>
+        </div>
 
-      <main className="grid grid-col-1 md:grid-col-2 lg:grid-cols-3 gap-4 p-4">
+        <div className="group relative rounded-lg overflow-hidden">
+          <Image
+            src="/revelwell.png"
+            layout="responsive"
+            width={200}
+            height={200}
+            objectFit="cover"
+            alt="leos"
+          />
+          <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-gatsby opacity-0 group-hover:h-full group-hover:opacity-100 duration-500 px-2">
+            <h1 className="text-xl text-white">RevelWell</h1>
+            <p className="text-sm text-center lg:text-left">
+              Gatsby, Netlify, Stripe, MUX, Contentful
+            </p>
+            <a
+              className="mt-5 px-8 py-3 rounded-full bg-amber-400 hover:bg-amber-600 duration-300"
+              href="#"
+            >
+              Visit Project
+            </a>
+          </div>
+        </div>
+      </div>
+      {/* <main className="grid grid-col-1 md:grid-col-2 lg:grid-cols-3 gap-4 p-4">
         {PROJECTS.map((project) => (
           <div
             key={project.id}
@@ -49,8 +146,8 @@ const skills: NextPage = () => {
             </div>
           </div>
         ))}
-      </main>
-    </div>
+      </main> */}
+    </Layout>
   );
 };
 
