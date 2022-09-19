@@ -10,7 +10,6 @@ import Avatar from "../components/Avatar";
 
 const Home = ({ posts, title, description }: BlogProps) => {
   const recentPosts = posts?.slice(0, 3);
-  console.log("🚀  TESTY:  : Home : recentPosts", recentPosts);
 
   return (
     <Layout title={title} description={description}>
