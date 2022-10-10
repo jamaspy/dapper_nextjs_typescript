@@ -1,29 +1,38 @@
-import type { NextPage } from "next";
-import { Layout, Navbar } from "@/components/index";
-import { FaChevronCircleRight } from "react-icons/fa";
-import React from "react";
+import { Layout } from "@/components/index";
+import { BlogProps, Theme, ThemeContextType } from "@/interfaces/index";
 import { getAllPostsWithFrontMatter } from "@/lib/posts";
-import { BlogProps } from "@/interfaces/index";
 import Link from "next/link";
-
+import React, { useContext } from "react";
 import Avatar from "../components/Avatar";
+import { ThemeContext } from "../context/context";
 
 const Home = ({ posts, title, description }: BlogProps) => {
   const recentPosts = posts?.slice(0, 3);
-
+  const { theme, changeTheme } = useContext(ThemeContext) as ThemeContextType;
+  console.log(theme);
   return (
-    <Layout title={title} description={description}>
+    <Layout title={title} description={description} theme={theme}>
       <div className="flex flex-col lg:flex-row overflow-hidden">
         <div className="flex-1 ">
           {/* TEXT */}
           <div className="flex flex-col h-full justify-center px-4 lg:pl-12 mt-12 lg:mt-0">
             <h1 className=" tracking-tight font-extrabold text-gray-900 text-6xl md:text-8xl">
-              <span className="block xl:inline text-white">dapper</span>{" "}
+              <span
+                className={`block xl:inline ${
+                  theme ? "text-white" : "text-nice_black"
+                }`}
+              >
+                dapper
+              </span>{" "}
               <span className="block text-salmon xl:inline ml-6 md:ml-12">
                 designer
               </span>
             </h1>
-            <p className="mt-3 text-base text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl lg:mx-0">
+            <p
+              className={`mt-3 text-base ${
+                theme ? "text-gray-400" : "text-nice_black"
+              } sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl lg:mx-0`}
+            >
               Frontend developer who loves to create beautiful and functional
               interfaces.
             </p>
@@ -43,7 +52,7 @@ const Home = ({ posts, title, description }: BlogProps) => {
           {/* END TEXT */}
         </div>
         <div className="flex-1">
-          <Avatar />
+          <Avatar theme={theme} />
         </div>
       </div>
       <div className="flex flex-col lg:flex-row justify-between bg-gray-50 p-4">

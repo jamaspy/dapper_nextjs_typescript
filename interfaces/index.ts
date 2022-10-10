@@ -31,3 +31,10 @@ export interface BlogProps extends BlogPostsProps {
   title: string;
   description: string;
 }
+
+
+export type Theme = boolean;
+export type ThemeContextType = {
+  theme: Theme;
+  changeTheme: (theme: Theme) => void;
+};

@@ -1,13 +1,15 @@
 import { BigHead } from "@bigheads/core";
 import React from "react";
-
-const Avatar = () => {
+interface AvatarProps {
+  theme: boolean;
+}
+const Avatar = ({ theme }: AvatarProps) => {
   return (
     <BigHead
-      accessory="roundGlasses"
+      accessory={theme ? "roundGlasses" : "shades"}
       body="chest"
       circleColor="blue"
-      clothing="dressShirt"
+      clothing={theme ? "dressShirt" : "shirt"}
       clothingColor="red"
       eyebrows="raised"
       eyes="leftTwitch"

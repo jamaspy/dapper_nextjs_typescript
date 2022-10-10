@@ -1,7 +1,9 @@
-import React, { FC, Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { MenuIcon, MoonIcon, SunIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
+import React, { FC, Fragment, useContext } from "react";
+import { ThemeContext } from "../context/context";
+import { ThemeContextType } from "../interfaces";
 const Navbar: FC = () => {
   const navigation = [
     { name: "Articles", href: "/blog" },
@@ -9,8 +11,9 @@ const Navbar: FC = () => {
     // { name: "Marketplace", href: "#" },
     { name: "Contact", href: "/contact" },
   ];
+  const { theme, changeTheme } = useContext(ThemeContext) as ThemeContextType;
   return (
-    <div className="bg-nice_black border-none pb-3">
+    <div className={`${theme ? "bg-nice_black" : "bg-white"}border-none pb-3`}>
       <Popover>
         <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
           <nav
@@ -37,22 +40,37 @@ const Navbar: FC = () => {
                 </div>
               </div>
             </div>
-            <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
-              {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="font-medium text-gray-500 hover:text-salmon"
+            <div className="hidden md:flex md:ml-10 md:pr-4 md:space-x-8  w-full justify-between">
+              <div className="w-1/2  flex justify-evenly">
+                {navigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="font-medium text-gray-500 hover:text-salmon"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+              <div className="flex items-center justify-center">
+                <button
+                  onClick={() => {
+                    changeTheme(!theme);
+                  }}
                 >
-                  {item.name}
-                </a>
-              ))}
-              <a
-                href="#"
-                className="font-medium text-react text-gatsby hover:text-gatsby_hover"
-              >
-                Log in
-              </a>
+                  {theme ? (
+                    <SunIcon
+                      className="h-8 w-8 text-white hover:text-gatsby_light"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <MoonIcon
+                      className="h-8 w-8 text-nice_black hover:text-gatsby_light"
+                      aria-hidden="true"
+                    />
+                  )}
+                </button>
+              </div>
             </div>
           </nav>
         </div>
